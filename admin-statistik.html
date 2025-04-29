@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistik Tracer Study</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4fc;
+      color: #333;
+    }
+
+    .navbar {
+      background: linear-gradient(to right, #db0ddb, #8f50ff);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar img.logo {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .navbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .navbar nav a:hover,
+    .navbar nav a.active {
+      color: #e0d5ff;
+      text-decoration: underline;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .content h3 {
+      color: #db0ddb;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body class="dashboard">
+  <div class="navbar">
+    <h2>Statistik</h2>
+    <nav>
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-kelola-user.html">Kelola User</a>
+      <a href="admin-statistik.html" class="active">Statistik</a>
+    </nav>
+    <a href="logout.html" class="logout">Logout</a>
+  </div>
+
+  <div class="content">
+    <h3>Grafik Data Alumni</h3>
+    <canvas id="barChart" width="600" height="300"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('barChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Jumlah Alumni',
+          data: [45, 60, 75, 90],
+          backgroundColor: '#6a0dad',
+          borderRadius: 8,
+          borderSkipped: false
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#333',
+              font: {
+                size: 14
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#555' }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#555' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

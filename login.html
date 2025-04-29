@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Tracer Study FKOMINFO</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #db0ddb, #c38aff);
+      margin: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #db0ddb;
+      padding: 10px 30px;
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar img.logo {
+      height: 50px;
+    }
+
+    .navbar nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .navbar nav a:hover {
+      color: #ddd;
+    }
+
+    .login-container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      margin: 60px auto;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #db0ddb;
+    }
+
+    .login-container input,
+    .login-container select,
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .login-container button {
+      background-color: #db0ddb;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background-color: #5b009e;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img src="img/FKOMINFO LOGO-3.png" alt="Logo FKOMINFO" class="logo" />
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </div>
+
+  <div class="login-container">
+    <h2>Login Tracer Study</h2>
+    <form onsubmit="return handleLogin(event)">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <select id="role">
+        <option value="user">Login sebagai User</option>
+        <option value="admin">Login sebagai Admin</option>
+      </select>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

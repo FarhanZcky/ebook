@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isi Kuisioner - Tracer Study FKOMINFO</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4fc;
+      color: #333;
+    }
+
+    .navbar {
+      background: linear-gradient(to right, #db0ddb, #8f50ff);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .navbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .navbar nav a:hover,
+    .navbar nav a.active {
+      color: #e0d5ff;
+      text-decoration: underline;
+    }
+
+    .navbar .logout {
+      color: white;
+      font-weight: bold;
+      background-color: #8f50ff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar .logout:hover {
+      background-color: #db0ddb;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .content h3 {
+      color: #db0ddb;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .content form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content label {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .content input {
+      padding: 12px;
+      font-size: 1rem;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    .content input:focus {
+      border-color: #db0ddb;
+      outline: none;
+    }
+
+    .content button {
+      padding: 12px 30px;
+      background-color: #db0ddb;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .content button:hover {
+      background-color: #8f50ff;
+    }
+
+    .status-message {
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #db0ddb;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body class="dashboard">
+  <div class="navbar">
+    <h2>Isi Kuisioner</h2>
+    <nav>
+      <a href="user-dashboard.html">Dashboard</a>
+      <a href="user-kuisioner.html" class="active">Isi Kuisioner</a>
+    </nav>
+    <a href="logout.html" class="logout">Logout</a>
+  </div>
+
+  <div class="content">
+    <h3>Form Kuisioner</h3>
+    <form id="kuisionerForm" onsubmit="return submitForm(event)">
+      <label for="pertanyaan1">Pertanyaan 1: ...</label>
+      <input type="text" id="pertanyaan1" placeholder="Jawaban Anda" required>
+
+      <label for="pertanyaan2">Pertanyaan 2: ...</label>
+      <input type="text" id="pertanyaan2" placeholder="Jawaban Anda" required>
+
+      <button type="submit">Kirim</button>
+    </form>
+
+    <div class="status-message" id="statusMessage">
+      <p>Status Pengisian: <strong>Berhasil Dikirim</strong></p>
+      <p>Terima kasih! Kuisioner Anda sudah kami terima.</p>
+    </div>
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault(); // Mencegah form disubmit ke server
+
+      // Menampilkan pesan status setelah submit
+      const statusMessage = document.getElementById('statusMessage');
+      statusMessage.style.display = 'block'; // Menampilkan notifikasi
+
+      // Opsional: Sembunyikan form setelah submit
+      const form = document.getElementById('kuisionerForm');
+      form.style.display = 'none';
+
+      // Anda bisa menambahkan logika lain di sini untuk menyimpan atau mengirim data ke server.
+      return false;
+    }
+  </script>
+</body>
+</html>
